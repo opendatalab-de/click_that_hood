@@ -1,9 +1,0 @@
-{ 
-  "locationName": "Switzerland",
-  "countryName": "Switzerland",
-  "annotation": "Cantons",
-  "neighborhoodNoun": ["canton", "cantons"],
-
-  "dataUrl": "https://github.com/interactivethings/swiss-maps",
-  "dataTitle": "Swiss Maps"
-}

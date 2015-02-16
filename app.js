@@ -88,7 +88,7 @@ fsTools.findSorted('public/data', /[^.]+\.metadata.json/, function(err, files) {
 
   var metadata = {};
 
-  var countryNames = ['U.S.'];
+  var countryNames = [];
 
   var totalNumFilesToUpload = 0;
   var numFilesUploaded = 0;

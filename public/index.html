@@ -13,7 +13,7 @@
  */
 -->
 
-  <title>Click that ’hood!</title>
+  <title>Klick Deutschland</title>
   <meta charset='utf-8'>
 
   <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
@@ -33,17 +33,15 @@
   <script src='js/data.js'></script>
 
   <script>
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-37861999-1']);
-    _gaq.push(['_trackPageview']);
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    ga('create', 'UA-42499721-2', 'auto');
+    ga('send', 'pageview');
+
   </script>
-
   <script src='//platform.twitter.com/widgets.js'></script>
 </head>
 
@@ -51,29 +49,28 @@
 
   <div id='wrong-browser' style='display: none'>
     <p>
-      We’re sorry, but Click that ’Hood requires a newer browser. Learn more
-      about how to get one at <a href='http://browsehappy.com/'>Browse
+      Es tut uns leid, aber Klick Deutschland erfordert einen aktuellen Browser. Mehr erfahren unter <a href='http://browsehappy.com/'>Browse
       Happy</a>.
     </p>
   </div>
 
   <div id='mobile' style='display: none'>
     <p>
-      <img class='logo' src='/images/logo.png' alt='Click that ’hood'>
+      <img class='logo' src='/images/logo.png' alt='Klick Deutschland'>
     </p>
     <p>
-      Click that ’Hood, an open data geo game where you try to quickly point
-      to the proper neighborhood, doesn’t make much sense on a small screen
-      like this.
+      Klick Deutschland ist ein Open Data Geo-Spiel bei dem du versuchst möglichst
+      schnell Bundesländer, Landkreise und Gemeinden in Deutschland zu erraten.
+      Auf einem kleinen Bildschirm funktioniert das nicht so gut.
     </p>
     <p>
-      Try it on your tablet or your computer!
+      Versuche es auf einem Tablet oder PC!
     </p>
     <p>
-      Still feeling brave?
+      Gerade nicht zu Hand?
     </p>
     <p>
-      <button>Go on anyway</button>
+      <button>Dann versuche es trotzdem</button>
     </p>
   </div>
 
@@ -93,9 +90,10 @@
         <img alt='Click that ’hood' class='logo' src='/images/logo.png'>
         <h1>
           <div>
-            A geo game based on open data,<br>built by 
+            Ein Geo-basiertes Spiel welches Open Data verwendet.<br>Originalversion erstellt von
             <a target='_blank' href='http://codeforamerica.org'>Code for America</a>’s 
             2013 fellowship team.
+            <br>Übersetzt und angepasst für Deutschland von <a href="http://codefor.de/heilbronn">Code for Heilbronn</a>
           </div>
         </h1>
       </header>
@@ -117,34 +115,34 @@
             <div>
               <div id='loading'>
                 <div>
-                  Loading…
+                  Lade Daten…
                   <progress val='0' max='100'></progress>
                 </div>
               </div>
-              <span class='click-verb capitalize'></span> the proper <span class='location-name'></span> 
-              <span class='neighborhood-noun'></span>
-              as soon as its name comes up. The faster, the better!
+              <span class='click-verb capitalize'></span> die richtige
+              <span class='neighborhood-noun'></span> in <span class='location-name'></span>
+              sobald sie erscheint. Je schneller, desto besser!
             </div>
             <div id='select-mode'>
-              <button onclick='startGame(true)'>Start<span class='difficult-game'><br><span>(<span class='easy-mode-count'></span> random <span class='neighborhood-nouns'></span>)</span></span></button>
+              <button onclick='startGame(true)'>Start<span class='difficult-game'><br><span>(<span class='easy-mode-count'></span> zufällige <span class='neighborhood-nouns'></span>)</span></span></button>
               <span class='simple-game'>
                 <span class='neighborhoods-removed-disclaimer'>
                   <br>
-                  We’ll skip some <span class='neighborhood-nouns'></span>
-                  since they’re too small to <span class='click-verb'></span>.
-                  <br>(Nothing personal, <span class='small-neighborhood-example'></span>.)
+                  Wir lassen paar <span class='neighborhood-nouns'></span> raus,
+                  weil sie zu kleinn zum Klicken sind.
+                  <br>(Bitte nicht persönlich nehmen, <span class='small-neighborhood-example'></span>.)
                 </span>
               </span>
               <span class='difficult-game'>
                 <br>
-                or
+                oder
                 <br>
-                <button onclick='startGame(false)' class='smaller'>Start a difficult game (all <span class='hard-mode-count'></span> 
+                <button onclick='startGame(false)' class='smaller'>Schwieriges Spiel starten (alle <span class='hard-mode-count'></span>
                 <span class='neighborhood-nouns'></span><span class='neighborhoods-removed-disclaimer'>*</span>)</button>
                 <span class='neighborhoods-removed-disclaimer'>
-                  <br><sup>*</sup>We’ll skip some <span class='neighborhood-nouns'></span>
-                  since they’re too small to <span class='click-verb'></span>.
-                  <br>(Nothing personal, <span class='small-neighborhood-example'></span>.)
+                  <br><sup>*</sup>Wir lassen paar <span class='neighborhood-nouns'></span> raus,
+                  weil sie zu kleinn zum Klicken sind.
+                  <br>(Bitte nicht persönlich nehmen, <span class='small-neighborhood-example'></span>.)
                 </span>
               </span>
             </div>
@@ -154,10 +152,10 @@
         <div id='congrats'>
           <div>
             <h1>
-              Congratulations! 
+              Glückwunsch!
             </h1>
             <p>
-              You correctly identified
+              Du hast richtig erraten:
               <br>
               <span id='number-identified'></span> 
               <span class='location-name'></span>
@@ -165,11 +163,11 @@
               <br>in <span class='time'></span>!
             </p>
             <p>
-              <button onclick='reloadPage()'>Play again</button>
+              <button onclick='reloadPage()'>Erneut spielen!</button>
             </p>
             <p>
-              <a id='share-via-twitter' class='button smaller'>Share with Twitter</a>
-              <a id='share-via-facebook' class='button smaller'>Share with Facebook</a>
+              <a id='share-via-twitter' class='button smaller'>Bei Twitter teilen</a>
+              <!--a id='share-via-facebook' class='button smaller'>Bei Facebook teilen</a-->
             </p>
           </div>
         </div>
@@ -195,7 +193,7 @@
       <div id='more-cities-wrapper-wrapper'>
         <div id='more-cities-wrapper'>
           <div>
-            …or scroll down for more locations
+            …oder suche dir eine andere Gegend aus.
           </div>
         </div>
       </div>
@@ -210,14 +208,10 @@
 
   <footer>
     <div class='contents'>
-      <img id='cfa' src='/images/cfa-flagtag.svg'>
-      <a target='_blank' 
-          href='http://www.codeforamerica.org'>Code for America</a>.
-      Contact via <a target='_blank' href='mailto:click-that-hood@codeforamerica.org'>email</a>
-      or <a target='_blank' href='http://twitter.com/mwichary'>Twitter</a>.
-      <a target='_blank' 
-          href='https://github.com/codeforamerica/click_that_hood'>Source code</a>.
-      <a target='_blank' href='https://github.com/codeforamerica/click_that_hood/issues'>Report an issue</a>.
+      <a target='_blank'
+          href='http://codefor.de/heilbronn'>Code for Heilbronn</a>.
+      Impressum: <a target='_blank' href='http://blog.opendatalab.de/imprint.html'>OpenDataLab</a>
+      Kontakt <a target='_blank' href='http://twitter.com/codeforhn'>Twitter</a>.
 
       <span class='main-menu'>
         Fonts from <a href='http://www.losttype.com/browse/'>Lost Type</a>.
@@ -225,12 +219,14 @@
       </span>
       <span class='data'>    
         <span class='data-source'>
-          Neighborhood data from <a target='_blank'></a>.
+          Geodaten <a target='_blank'></a>.
         </span>
         <span class='author'>
           Added by <a target='_blank'></a>.
         </span>
         Map tiles © 2013 <a href='http://mapbox.com/'>MapBox</a>.
+        Das Spiel basiert auf <a href="http://click-that-hood.com/">Click that 'hood</a>.
+
       </span>
     </div>
   </footer>  

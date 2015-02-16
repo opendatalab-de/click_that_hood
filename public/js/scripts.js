@@ -43,13 +43,10 @@ var MIN_POINT_RADIUS = 16
 
 var MAPBOX_MAP_ID = 'codeforamerica.map-mx0iqvk2'
 
-var ADD_YOUR_CITY_URL = 
-    'https://github.com/codeforamerica/click_that_hood/wiki/How-to-add-a-city-to-Click-That-%E2%80%99Hood'
-
 var MAPS_DEFAULT_SCALE = 512
 var D3_DEFAULT_SCALE = 500
 
-var FACEBOOK_APP_ID = '179106222254519'
+var FACEBOOK_APP_ID = ''
 
 var startTime = 0
 var timerIntervalId
@@ -932,7 +929,7 @@ function setTouchActive(newTouchActive) {
 
   var els = document.querySelectorAll('.click-verb')
   for (var i = 0, el; el = els[i]; i++) {
-    el.innerHTML = touchActive ? 'touch' : 'click'
+    el.innerHTML = touchActive ? 'Berühre' : 'Klicke'
   }
 }
 
@@ -1456,13 +1453,15 @@ function gameOver() {
 }
 
 function getSharingMessage() {
-  return 'I just played Click That ’Hood and identified ' + 
-      neighborhoodsGuessed.length + ' ' + CITY_DATA[cityId].locationName + ' ' + 
-      getNeighborhoodNoun(true) + ' in ' + getTimer() + '. Try to beat me!'
+  return 'Ich habe gerade Klick Deutschland gespielt. ' +
+      neighborhoodsGuessed.length + ' Treffer in ' + CITY_DATA[cityId].locationName + ' ' +
+      getNeighborhoodNoun(true) + ' in ' + getTimer() + '. Bist du besser?'
 }
 
 function updateFacebookLink(congratsEl) {
   var el = congratsEl.querySelector('#share-via-facebook')
+  if (el) {
+
 
   var text = getSharingMessage()
   var url = location.href
@@ -1473,6 +1472,7 @@ function updateFacebookLink(congratsEl) {
       '&link=' + encodeURIComponent(url) + 
       '&name=' + encodeURIComponent('Click That ’Hood') +
       '&description=' + encodeURIComponent(text)
+  }
 }
 
 function updateTwitterLink(congratsEl) {
@@ -1853,7 +1853,7 @@ function prepareLocationList() {
 
       el.setAttribute('city-id', id)
 
-      var html = '<a href="' + id + '">'
+      var html = '<a href="' + encodeURIComponent(id) + '">'
 
       html += cityData.longLocationName || cityData.locationName
       if (cityData.annotation) {
@@ -1869,15 +1869,6 @@ function prepareLocationList() {
       document.querySelector('.menu .locations').appendChild(el)
     }
   }
-
-  var el = document.createElement('h1')
-  el.innerHTML = ''
-  document.querySelector('.menu .locations').appendChild(el)
-
-  var el = document.createElement('li')
-  el.innerHTML = '<a target="_blank" class="add-your-city" href="' + 
-      ADD_YOUR_CITY_URL + '">Add your city…</a>'
-  document.querySelector('.menu .locations').appendChild(el)
 
   if (cityId) {
     var el = document.querySelector('li[city-id="' + cityId + '"]')
