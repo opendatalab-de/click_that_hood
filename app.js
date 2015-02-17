@@ -60,7 +60,7 @@ var startApp = function() {
 
   app.use(express.static(__dirname + '/public'));
 
-  app.listen(config.port, null, null, function() {
+  app.listen(config.port, "localhost", null, function() {
     console.log('Listening on port ' + config.port);
   });
 }
